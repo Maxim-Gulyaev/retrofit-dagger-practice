@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'android.maxim.practiceretrofit1804'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "android.maxim.practiceretrofit1804"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -36,4 +36,10 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //Dagger
+    implementation "com.google.dagger:dagger:2.35.1"
+    implementation "com.google.dagger:dagger-android-support:2.35.1"
+    annotationProcessor "com.google.dagger:dagger-android-processor:2.35.1"
+    annotationProcessor "com.google.dagger:dagger-compiler:2.35.1"
 }

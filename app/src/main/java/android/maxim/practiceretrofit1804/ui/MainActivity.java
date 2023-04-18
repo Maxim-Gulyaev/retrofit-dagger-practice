@@ -1,7 +1,8 @@
-package android.maxim.practiceretrofit1804;
+package android.maxim.practiceretrofit1804.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.maxim.practiceretrofit1804.R;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
