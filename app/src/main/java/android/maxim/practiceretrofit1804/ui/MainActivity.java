@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private void showUserName() {
         int idFromUI = Integer.parseInt(binding.etEnterId.getText().toString());
         mainActivityViewModel.getDataFromRepository(idFromUI);
-        mainActivityViewModel.repository.userResponseMutableLiveData
+        mainActivityViewModel.repository.getLiveData()
                 .observe(this, userResponse -> {
                     binding.tvOutputName
                             .setText(userResponse.firstName + " " + userResponse.lastName);

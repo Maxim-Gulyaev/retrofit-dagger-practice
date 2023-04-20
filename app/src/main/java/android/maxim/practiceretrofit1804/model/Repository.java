@@ -3,6 +3,7 @@ package android.maxim.practiceretrofit1804.model;
 import android.maxim.practiceretrofit1804.di.AppComponent;
 import android.maxim.practiceretrofit1804.di.DaggerAppComponent;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import javax.inject.Inject;
 import retrofit2.Call;
@@ -46,5 +47,9 @@ public class Repository {
                 userResponseMutableLiveData.postValue(null);
             }
         });
+    }
+
+    public LiveData<UserResponse> getLiveData() {
+        return userResponseMutableLiveData;
     }
 }
