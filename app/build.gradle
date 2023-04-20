@@ -35,6 +35,9 @@ dependencies {
 
     def retrofitVersion = '2.9.0'
     def daggerVersion = '2.35.1'
+    def lifecycleVersion = "2.5.1"
+    def rxjavaVersion = "3.1.6"
+    def rxandroidVersion = "3.0.2"
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
@@ -52,4 +55,13 @@ dependencies {
     //Internet
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+
+    //LiveData and ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata:$lifecycleVersion"
+
+    //RxJava
+    implementation "io.reactivex.rxjava3:rxjava:$rxjavaVersion"
+    implementation "io.reactivex.rxjava3:rxandroid:$rxandroidVersion"
+
 }

@@ -6,12 +6,11 @@ import android.maxim.practiceretrofit1804.di.DaggerAppComponent;
 
 public class App extends Application {
 
-    private AppComponent appComponent;
+    public AppComponent appComponent;
 
     @Override
     public void onCreate() {
         super.onCreate();
-
         appComponent = DaggerAppComponent.builder().build();
     }
 }

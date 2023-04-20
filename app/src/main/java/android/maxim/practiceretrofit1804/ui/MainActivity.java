@@ -2,10 +2,9 @@ package android.maxim.practiceretrofit1804.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
+import android.maxim.practiceretrofit1804.app.App;
 import android.maxim.practiceretrofit1804.databinding.ActivityMainBinding;
 import android.os.Bundle;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,22 +17,21 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        mainActivityViewModel = new ViewModelProvider(this).get(MainActivityViewModel.class);
+        ((App) getApplication()).appComponent.injectActivity(this);
 
-        binding.btnShowName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getDataFromViewModel();
-            }
-         });
+        mainActivityViewModel = new ViewModelProvider(this)
+                .get(MainActivityViewModel.class);
+
+        binding.btnShowName.setOnClickListener(v -> showUserName());
     }
 
-    private String getIdFromUI() {
-        return binding.etEnterId.getText().toString();
+    private void showUserName() {
+        int idFromUI = Integer.parseInt(binding.etEnterId.getText().toString());
+        mainActivityViewModel.getDataFromRepository(idFromUI);
+        mainActivityViewModel.repository.userResponseMutableLiveData
+                .observe(this, userResponse -> {
+                    binding.tvOutputName
+                            .setText(userResponse.firstName + " " + userResponse.lastName);
+                });
     }
-
-    private void getDataFromViewModel() {
-        mainActivityViewModel.getDataFromRepository(getIdFromUI());
-    }
-
 }
