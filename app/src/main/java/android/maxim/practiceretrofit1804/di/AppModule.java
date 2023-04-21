@@ -1,8 +1,11 @@
 package android.maxim.practiceretrofit1804.di;
 
+import android.maxim.practiceretrofit1804.model.Repository;
 import android.maxim.practiceretrofit1804.model.UserAPI;
 import android.maxim.practiceretrofit1804.model.UserResponse;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import retrofit2.Retrofit;
@@ -13,6 +16,7 @@ public class AppModule {
 
     String BASE_URL = "https://dummyjson.com/";
 
+    @Singleton
     @Provides
     public Retrofit provideRetrofit() {
         return new Retrofit.Builder()
@@ -21,13 +25,27 @@ public class AppModule {
                 .build();
     }
 
+    @Singleton
     @Provides
     public UserAPI provideUserAPI(Retrofit retrofit) {
         return retrofit.create(UserAPI.class);
     }
 
+    @Singleton
     @Provides
     public MutableLiveData<UserResponse> provideMutableLiveData() {
         return new MutableLiveData<>();
+    }
+
+    @Singleton
+    @Provides
+    public LiveData<UserResponse> provideLiveData(Repository repository) {
+        return repository.getLiveData();
+    }
+
+    @Singleton
+    @Provides
+    public Repository provideRepository() {
+        return new Repository();
     }
 }

@@ -4,6 +4,7 @@ import android.app.Application;
 import android.maxim.practiceretrofit1804.di.AppComponent;
 import android.maxim.practiceretrofit1804.di.DaggerAppComponent;
 
+
 public class App extends Application {
 
     public AppComponent appComponent;

@@ -13,12 +13,10 @@ import retrofit2.Response;
 public class Repository {
 
     @Inject
-    public Repository(UserAPI userAPI) {
-        this.userAPI = userAPI;
-    }
-    @Inject
     public MutableLiveData<UserResponse> userResponseMutableLiveData;
-    private final UserAPI userAPI;
+
+    @Inject
+    public UserAPI userAPI;
 
     {
         AppComponent appComponent = DaggerAppComponent.builder().build();
