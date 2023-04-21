@@ -38,6 +38,7 @@ dependencies {
     def lifecycleVersion = "2.5.1"
     def rxjavaVersion = "3.1.6"
     def rxandroidVersion = "3.0.2"
+    def okhttpVersion = "4.10.0"
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
@@ -63,5 +64,9 @@ dependencies {
     //RxJava
     implementation "io.reactivex.rxjava3:rxjava:$rxjavaVersion"
     implementation "io.reactivex.rxjava3:rxandroid:$rxandroidVersion"
+
+    //OkHTTP-Interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
+    implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
 
 }
